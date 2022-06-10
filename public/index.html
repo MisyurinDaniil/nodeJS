@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html class="h-100" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body class="h-100">
+    <div id="app" class="d-flex flex-column h-100">
+        <header class="">
+            <div class="container">
+                <div class="row">
+                    <div class="col header_col d-flex justify-content-end align-items-center position-relative">
+                        <div class="shop-title">
+                            <h1>Vue.js-Shop</h1>
+                        </div>
+                        <div class="search d-flex justify-content-end">
+                            <input class="form-control me-1" v-model="searchLine" type="text" placeholder="Поиск">
+                            <button class="btn-search" @click="filterGoods" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                        <button type="button" @click="$refs.cart.isVisibleCart = !$refs.cart.isVisibleCart" id="cart-button" class="btn btn-warning">Корзина</button>
+                            <cart ref="cart"></cart>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="flex-grow-1">
+            <div class="container">
+                <products-list ref="products_list"></products-list>
+            </div>
+        </main>
+        <footer class="flex-shrink-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col mt-3 mb-3">
+                        {{ message }}
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script defer src="js/vue.js"></script>
+    <script defer src="js/bootstrap.bundle.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+    <script defer src="js/errorComponent.js"></script>
+    <script defer src="js/productsComponets.js"></script>
+    <script defer src="js/cartComponents.js"></script>
+    <script defer src="js/main.js"></script>
+</body>
+</html>
