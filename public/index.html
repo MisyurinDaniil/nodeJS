@@ -14,7 +14,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col header_col d-flex justify-content-end align-items-center position-relative">
-                        <div class="shop-title">
+                        <div class="shop-title flex-grow-1">
                             <h1>Vue.js-Shop</h1>
                         </div>
                         <div class="search d-flex justify-content-end">
@@ -31,6 +31,7 @@
         </header>
         <main class="flex-grow-1">
             <div class="container">
+                <error-component ref="error_component"></error-component> 
                 <products-list ref="products_list"></products-list>
             </div>
         </main>

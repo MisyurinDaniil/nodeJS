@@ -10,7 +10,13 @@ let vueApp = new Vue({
         getJson(url) {
             return fetch(url)
                     .then(response => response.json())
-                    // .catch(error => console.log(error))
+                    .catch(error => {
+                        this.$refs.error_component.errorText = error + '!!!!';
+                    });
+                    // .catch(error => {
+                    //     this.$root.$refs.products_list.errorText = error + '!!!!';
+                    //     // this.errorText = error + '!!!!';
+                    // });
         },
         filterGoods() {
             if (this.searchLine) {            

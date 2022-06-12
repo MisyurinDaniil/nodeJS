@@ -5,12 +5,10 @@ Vue.component('products-list', {
             productsFilter: [],
             productsURL: 'getProducts.json',
             imgPlaceholder: 'img/image-holder.jpg',
-            errorText: '',
         }
     },
     template: `
-                <div class="row products-list d-flex justify-content-between">
-                    <error-component v-if="errorText" :error="errorText"></error-component>                   
+                <div class="row products-list d-flex justify-content-between">                  
                     <product v-for="item in productsFilter" :key="item.id_product"
                         :item="item"
                         :img="imgPlaceholder">
@@ -22,9 +20,6 @@ Vue.component('products-list', {
             .then(data => {
                 this.products = [...data];
                 this.productsFilter = [...data];
-            })
-            .catch(error => {
-                this.errorText = error + '!!!!';
             });
     },
 });

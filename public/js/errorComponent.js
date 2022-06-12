@@ -1,6 +1,17 @@
 Vue.component('error-component', {
-    props: ['error'],
+    data() {
+        return {
+            errorText: '',
+        }
+    },
+    computed: {
+        showError() {
+            return this.errorText !== '';
+        }
+    },
     template: `
-        <p>Ошибка: {{error}}</p>
+        <div v-if="showError">
+            <p>Ошибка: {{ errorText }}</p>
+        </div>
     `,
 });

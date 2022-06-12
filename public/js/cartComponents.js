@@ -8,7 +8,6 @@ Vue.component('cart', {
             imgPlaceholder: 'img/image-holder.jpg',
             isVisibleCart: false,
             isEmptyCart: true,
-            errorText: '',
         }
     },
     methods: {
@@ -30,10 +29,6 @@ Vue.component('cart', {
                         }
                     }
                 })
-                .catch(error => {
-                    this.$root.$refs.products_list.errorText = error + '!!!!';
-                    // this.errorText = error + '!!!!';
-                });
         },
         delFromCart(cartProduct) {
             this.$root.getJson(API + this.deleteCartUrl)
@@ -55,7 +50,7 @@ Vue.component('cart', {
     },
     template: `
         <div v-show="isVisibleCart" class="product-cart flex-column border position-absolute px-2 pb-2">
-            <error-component v-if="errorText" :error="errorText"></error-component>  
+
             <p v-if="!cartProducts.length">Ваша корзина пустая.</p>
             <cart-item v-for="product in cartProducts" :key="product.id_product" :product="product" :img="imgPlaceholder"></cart-item>
         </div>
